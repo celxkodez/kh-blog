@@ -1,43 +1,64 @@
 <template>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p
-              class="card-text"
-            >With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+  <div>
+    <h4>Register</h4>
+    <form @submit.prevent="register">
+      <label for="name">Name</label>
+      <div>
+        <input id="name" type="text" v-model="name" required autofocus />
       </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p
-              class="card-text"
-            >With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">View Post</a>
-            <a href="#" class="btn btn-success">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              Edit
-            </a>
-            <a href="#" class="btn btn-danger">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-              Delete
-            </a>
-          </div>
-        </div>
+
+      <label for="email">E-Mail Address</label>
+      <div>
+        <input id="email" type="email" v-model="email" required />
       </div>
-    </div>
+
+      <label for="password">Password</label>
+      <div>
+        <input id="password" type="password" v-model="password" required />
+      </div>
+
+      <label for="password-confirm">Confirm Password</label>
+      <div>
+        <input
+          id="password-confirm"
+          type="password"
+          v-model="password_confirmation"
+          required
+        />
+      </div>
+
+      <div>
+        <button type="submit">Register</button>
+      </div>
+    </form>
   </div>
 </template>
 <script>
 export default {
-  name: "Register"
+  name: "Register",
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+      is_admin: null
+    };
+  },
+  methods: {
+    register: function() {
+      let data = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        is_admin: this.is_admin
+      };
+      this.$store
+        .dispatch("register", data)
+        .then(() => this.$router.push("/"))
+        .catch(err => console.log(err));
+    }
+  }
 };
 </script>
-<style>
-</style>
+<style></style>
