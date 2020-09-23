@@ -35,30 +35,33 @@
 </template>
 <script>
 export default {
-  name: "Register",
-  data() {
+  name: 'Register',
+  data () {
     return {
-      name: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
       is_admin: null
-    };
+    }
   },
   methods: {
-    register: function() {
+
+    register: function () {
       let data = {
         name: this.name,
         email: this.email,
         password: this.password,
         is_admin: this.is_admin
-      };
+      }
+
       this.$store
-        .dispatch("register", data)
-        .then(() => this.$router.push("/"))
-        .catch(err => console.log(err));
+        .dispatch('register', data)
+        .then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
     }
   }
-};
+
+}
 </script>
 <style></style>

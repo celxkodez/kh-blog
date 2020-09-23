@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
@@ -10,34 +10,34 @@ export const store = new Vuex.Store({
     user: {}
   },
   mutations: {
-    auth_request(state) {
+    auth_request (state) {
       state.status = 'loading'
     },
-    auth_success(state, token, user) {
+    auth_success (state, token, user) {
       state.status = 'success'
       state.token = token
       state.user = user
     },
-    auth_error(state) {
+    auth_error (state) {
       state.status = 'error'
     },
-    logout(state) {
+    logout (state) {
       state.status = ''
       state.token = ''
     }
 
   },
   actions: {
-    login({
+    login ({
       commit
     }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-            url: 'http://kh-blog-app.herokuapp.com/login',
-            data: user,
-            method: 'POST'
-          })
+          url: 'http://kh-blog-app.herokuapp.com/login',
+          data: user,
+          method: 'POST'
+        })
           .then(resp => {
             const token = resp.data.token
             const user = resp.data.user
@@ -55,16 +55,16 @@ export const store = new Vuex.Store({
       })
     },
 
-    register({
+    register ({
       commit
     }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-            url: 'http://localhost:3000/register',
-            data: user,
-            method: 'POST'
-          })
+          url: 'http://localhost:3000/register',
+          data: user,
+          method: 'POST'
+        })
           .then(resp => {
             const token = resp.data.token
             const user = resp.data.user
@@ -81,7 +81,7 @@ export const store = new Vuex.Store({
       })
     },
 
-    logout({
+    logout ({
       commit
     }) {
       return new Promise((resolve, reject) => {

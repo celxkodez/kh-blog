@@ -30,4 +30,4 @@ export const routes = [
     component: Register
   }
 
-];
+]

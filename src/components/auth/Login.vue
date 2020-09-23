@@ -59,25 +59,27 @@
 </template>
 <script>
 export default {
-  name: "Login",
-  data() {
+  name: 'Login',
+  data () {
     return {
-      email: "",
-      password: ""
-    };
+      email: '',
+      password: ''
+    }
   },
   methods: {
-    login: function() {
-      let email = this.email;
-      console.log(this.$store);
-      let password = this.password;
+    login: function () {
+      let email = this.email
+
+      console.log(this.$store)
+      let password = this.password
+
       this.$store
-        .dispatch("login", { email, password })
-        .then(() => this.$router.push("/"))
-        .catch(err => console.log(err));
+        .dispatch('login', { email, password })
+        .then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
     }
   }
-};
+}
 </script>
 <style scoped>
 /* BASIC */
