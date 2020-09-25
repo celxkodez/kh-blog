@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">KH Blog</a>
+    <a class="navbar-brand" href="/">KH Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,11 +36,12 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <!-- <a class="nav-link" href="#"></a> -->
+          <router-link to="/login" class="nav-link">Login</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Register</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>

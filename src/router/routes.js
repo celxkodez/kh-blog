@@ -1,5 +1,6 @@
 import HelloWorld from '@/components/HelloWorld'
 import Posts from '@/components/pages/Posts'
+import NewPosts from '@/components/pages/NewPost'
 import Login from '@/components/auth/Login'
 import Register from '@/components/auth/Register'
 // import store from './store'
@@ -18,6 +19,14 @@ export const routes = [
       requiresAuth: true
     },
     component: Posts
+  },
+  {
+    path: '/new-post',
+    name: 'new-posts',
+    meta: {
+      requiresAuth: true
+    },
+    component: NewPosts
   },
   {
     path: '/login',

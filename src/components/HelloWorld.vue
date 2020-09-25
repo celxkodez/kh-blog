@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h2>Opens in seconds</h2>
+    <h2>Hello! welcome to kh blog. please login to continue.</h2>
   </div>
 </template>
 
